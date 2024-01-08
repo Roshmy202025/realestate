@@ -1,0 +1,51 @@
+<!-- create_property.html -->
+
+<!--
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Property</title>
+</head>
+<body>
+    <h2>Create a New Property</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ property_form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
+
+
+-->
+
+<!-- property_create.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Property and Units</title>
+    <a href="{% url 'property_list' %}">Back</a>
+</head>
+<body>
+
+<h1>Create Property and Units</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Property Information</legend>
+        {{ property_form.as_p }}
+    </fieldset>
+
+    <fieldset>
+        <legend>Unit Information</legend>
+        {{ unit_form.as_p }}
+    </fieldset>
+
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>

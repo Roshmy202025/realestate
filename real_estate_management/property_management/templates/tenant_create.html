@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Tenant Profile</title>
+    <a href="{% url 'property_list' %}">Back</a>
+</head>
+<body>
+    <h1>Create Tenant Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="id_name">Name:</label>
+        {{ tenant_form.name }}
+        <br>
+        <label for="id_address">Address:</label>
+        {{ tenant_form.address }}
+        <br>
+        <label for="id_document_proofs">Document Proofs:</label>
+        {{ tenant_form.document_proofs }}
+        <br>
+        <button type="submit">Save Tenant</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- property_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property List</title>
+</head>
+<body>
+    <h2>List of Properties</h2> <a href="{% url 'create_property' %}">Create New Property</a>
+    <ul>
+        {% for property in properties %}
+            <li><a href="{% url 'property_detail' property.id %}">{{ property.name }}</a> - {{ property.address }} - {{ property.location }}</li>
+            
+        {% empty %}
+            <li>No properties found.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>
+    	Tenant List <a href="{% url 'create_tenant' %}"></h2>Create New Tenant</a>
+    	<ul>
+        {% for tenant in tenants %}
+            <li><a href="{% url 'tenant_profile' tenant.pk %}">{{ tenant.name }}</a> - {{ tenant.address }}
+            
+        {% empty %}
+            <li>No Tenant found.</li>
+        {% endfor %}
+    </ul>
+    </h2>
+</body>
+</html>

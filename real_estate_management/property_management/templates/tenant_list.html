@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenant List</title>
+</head>
+<body>
+    <h1>Tenant List</h1>
+    <ul>
+        {% for tenant in tenants %}
+            <li><a href="{% url 'tenant_detail' tenant.pk %}">{{ tenant.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

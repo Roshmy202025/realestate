@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Tenant</title>
+    <a href="{% url 'tenant_profile' tenant_obj.id %}">Back</a>
+</head>
+<body>
+    <h1>Assign Tenant {{ tenant_obj.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_tenant_id">Tanent:</label><input type="text" name="id_tenant_id" value="{{ tenant_obj.name }}" readonly=""><br>
+        <label for="id_unit">Select Unit:</label>
+        <select name="unit" id="id_unit" >
+            {% for unit in units %}
+                <option value="{{ unit.id }}">{{ unit.unit_type }} - {{ unit.property.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="id_agreement_end_date">Agreement End Date:</label>
+        <input type="date" name="agreement_end_date" id="id_agreement_end_date">
+        <br>
+        <label for="id_monthly_rent_date">Monthly Rent Date:</label>
+        <input type="date" name="monthly_rent_date" id="id_monthly_rent_date">
+        <br>
+        <button type="submit">Assign Tenant</button>
+    </form>
+</body>
+</html>

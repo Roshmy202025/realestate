@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenant Profile</title>
+     <a href="{% url 'property_list' %}">Back</a>
+
+</head>
+<body>
+    <h1>Tenant Profile</h1>
+    <h2>Personal Information</h2>
+    <p>Name: {{ tenant.name }}</p>
+    <p>Address: {{ tenant.address }}</p>
+    <!-- <p><a href="{% url 'assign_tenant' tenant.id %}">Assign Tentents </a></p> -->
+    <p><a href="/assign_tenant/{{ tenant.id }}/">Assign Tentents </a></p>
+    <h2>Rental Information</h2>
+    <ul>
+        <!-- {% for unit in tenant.units.all %}
+            <li>Unit: {{ unit.unit_type }} - {{ unit.property.name }}</li>
+            <ul>
+                <li>Agreement End Date: {{ unit.agreement_end_date }}</li>
+                <li>Monthly Rent Date: {{ unit.monthly_rent_date }}</li>
+            </ul>
+        {% endfor %} -->
+        {% for unit in tenant_assignments %}
+            <li>Unit: {{ unit.unit.unit_type }} - {{ unit.unit.property.name }}</li>
+            <ul>
+                <li>Agreement End Date: {{ unit.agreement_end_date }}</li>
+                <li>Monthly Rent Date: {{ unit.monthly_rent_date }}</li>
+            </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>

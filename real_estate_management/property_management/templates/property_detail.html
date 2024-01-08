@@ -1,0 +1,22 @@
+<!-- property_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Details</title>
+    <a href="{% url 'property_list' %}">Back</a>
+</head>
+<body>
+    <h2>Property Details</h2>
+    <h3>{{ property_obj.name }}</h3>
+    <p>Address: {{ property_obj.address }}</p>
+    <p>Location: {{ property_obj.location }}</p>
+
+    <h3>Units:</h3>
+    <ul>
+        {% for unit in units %}
+            <li>{{ unit.unit_type }} - Rent Cost: ${{ unit.rent_cost }}</li>
+            <!-- Display associated tenant information here if needed -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
